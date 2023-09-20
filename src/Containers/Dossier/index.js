@@ -1,6 +1,7 @@
 import {useForm} from "react-hook-form";
 
 import "./styles.css";
+import Download from "./Download";
 const Dossier =()=>{
     const {
         register,
