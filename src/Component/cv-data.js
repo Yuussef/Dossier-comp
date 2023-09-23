@@ -95,16 +95,20 @@ export const education = [
 
 export const skills = [
     {
-        name: "Angular",
+        value: "Azure Active Directory, System Center Configuration Manager, VMware ESX Servers, Vmware, Microsoft Azure, Linux, Windows PowerShell, Dynamic Host Configuration Protocol, Red Hat Enterprise Linux, Domain Name System (DNS).",
+        title:"Compétences principales",
     },
     {
-        name: "TypeScript",
+        value: "Gestion des Systèmes ",
+        title:"Gestion des Systèmes ",
     },
     {
-        name: "JavaScript",
+        value: "Amazon Web Services, IBM Cloud Computing, Infrastructure As A Service (IaaS), Microsoft Azure, Platform As A Service (PAAS).",
+        title:"Soluion Cloud",
     },
     {
-        name: "NodeJS",
+        value: "VMware ESX Servers, VMware VSphere, Vcenter, Xendesktop",
+        title:"Virtualisation",
     },
 ]
 

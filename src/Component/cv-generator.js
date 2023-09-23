@@ -1,14 +1,28 @@
-import { AlignmentType, Document, HeadingLevel, Paragraph, TabStopPosition, TabStopType, TextRun } from "docx";
+import {AlignmentType, Document, HeadingLevel, ImageRun, Paragraph, TabStopPosition, TabStopType, TextRun} from "docx";
+
 const PHONE_NUMBER = "07534563401";
 const PROFILE_URL = "https://www.linkedin.com/in/dolan1";
 const EMAIL = "docx@docx.com";
+
 export class DocumentCreator {
     // tslint:disable-next-line: typedef
     create([name,experiences, educations, skills, achivements]) {
         const document = new Document({
             sections: [
+
                 {
                     children: [
+                        new Paragraph({
+                            children: [
+                                new ImageRun({
+                                    data:  fs.readFileSync("../IMG-1735.jpg"),
+                                    transformation: {
+                                        width: 400,
+                                        height: 40,
+                                    },
+                                }),
+                            ],
+                        }),
                         new Paragraph({
                             text: name,
                             heading: HeadingLevel.TITLE
@@ -42,7 +56,13 @@ export class DocumentCreator {
                             .reduce((prev, curr) => prev.concat(curr), []),
                         this.createHeading("Skills, Achievements and Interests"),
                         this.createSubHeading("Skills"),
-                        this.createSkillList(skills),
+                        ...skills
+                            .map(skill => {
+                                const arr = [];
+                                arr.push(this.createSkillsHeader(skill.title, `${skill.value}`));
+                                return arr;
+                            })
+                            .reduce((prev, curr) => prev.concat(curr), []),
                         this.createSubHeading("Achievements"),
                         ...this.createAchivementsList(achivements),
                         this.createSubHeading("Interests"),
@@ -134,7 +154,27 @@ export class DocumentCreator {
     // tslint:disable-next-line:no-any
     createSkillList(skills) {
         return new Paragraph({
-            children: [new TextRun(skills.map(skill => skill.name).join(", ") + ".")]
+            children: [new TextRun(skills.map(skill =>skill.title+":"+skill.name).join(". ") + "\n")]
+        });
+    }
+
+    createSkillsHeader(title, value) {
+        return new Paragraph({
+            tabStops: [
+                {
+                    type: TabStopType.RIGHT,
+                    position: TabStopPosition.MAX
+                }
+            ],
+            children: [
+                new TextRun({
+                    text: title,
+                    bold: true
+                }),
+                new TextRun({
+                    text: `: ${value}`,
+                })
+            ]
         });
     }
     // tslint:disable-next-line:no-any
