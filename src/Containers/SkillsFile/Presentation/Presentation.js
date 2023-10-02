@@ -1,74 +1,63 @@
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
-import {FormControl, Grid, Input, InputAdornment, InputLabel, TextField} from "@mui/material";
-import {useForm} from "react-hook-form";
+import {FormControl, Grid, Input, InputLabel, Paper, TextField} from "@mui/material";
 
-const Presentation=()=>{
-    const onSubmit = (data) => {
-        alert(JSON.stringify(data));
-    };
-    const {
-        register,
-        handleSubmit,
-        formState: { errors }
-    } = useForm();
+
+const Presentation=({register})=>{
+
     return(
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <Paper elevation={3} >
         <AccordionDetails>
             <Typography>
                 <Grid container spacing={0} columns={24}>
 
                     <Grid  xs={4}>
                         <TextField
+                            variant="outlined"
                             id="outlined-basic" label="Prénom"
                             {...register("firstName", {
                                 validate: (value) => value !== "bill"
                             })}
                         />
                     </Grid>
-                    <Grid  xs={6}>
+                    <Grid  xs={4}>
                         <TextField
+                            variant="outlined"
                             id="outlined-basic" label="Nom de famille"
-                            {...register("firstName", {
+                            {...register("lastName", {
                                 validate: (value) => value !== "bill"
                             })}
                         />
                     </Grid>
-                    <Grid  xs={6}>
+                    <Grid  xs={4}>
                         <TextField
                             id="outlined-basic" label="Niveau de diplôme"
-                            {...register("firstName", {
-                                validate: (value) => value !== "bill"
-                            })}
+                            {...register("Niveau"
+                            )}
                         />
                     </Grid>
 
-                    <Grid  xs={6}>
+                    <Grid  xs={4}>
                         <TextField
                             id="outlined-basic" label="Année de naissance"
-                            {...register("firstName", {
+                            {...register("Annee", {
                                 validate: (value) => value !== "bill"
                             })}
                         />
                     </Grid>
 
-                </Grid>
-                <br/>
-                <Grid container spacing={0} columns={10}>
                 <Grid  xs={4}>
-                    <FormControl fullWidth sx={{ m: 1 }} variant="standard">
-                        <InputLabel htmlFor="standard-adornment-amount">Titre du candidat</InputLabel>
-                        <Input
-                            id="standard-adornment-amount"
-                       
-                        />
-                    </FormControl>
+                    <TextField
+                        variant="outlined"
+                        id="outlined-basic" label="Titre du candidat"
+                        {...register("titre")}
+                    />
                 </Grid>
                 </Grid>
             </Typography>
         </AccordionDetails>
-        </form>
+        </Paper>
     )
 }
 export default Presentation;
