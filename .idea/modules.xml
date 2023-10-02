@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/dossier-comp.iml" filepath="$PROJECT_DIR$/.idea/dossier-comp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/dossier-comp-front.iml" filepath="$PROJECT_DIR$/.idea/dossier-comp-front.iml" />
     </modules>
   </component>
 </project>
