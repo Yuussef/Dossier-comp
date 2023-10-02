@@ -6,7 +6,7 @@ import axios from "axios";
 export const fetchData = createAsyncThunk('dossier/fetchData', async () => {
         const response = await axios({
             method: 'get',
-            url: 'http://localhost:8080/api/document',
+            url: 'http://localhost:8080/api/reports/word',
             responseType: 'blob'
         });
     if(response.data) {

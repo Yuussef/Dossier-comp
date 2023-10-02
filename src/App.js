@@ -1,39 +1,33 @@
-
-import './App.css';
-import {Packer} from "docx";
-import { saveAs } from "file-saver";
-import { experiences, education, skills, achievements } from "./Component/cv-data";
-import {DocumentCreator}  from "./Component/cv-generator";
-import {useForm} from "react-hook-form";
-import Button from '@mui/material/Button';
-import CustomizedAccordions from "./Containers/Accordion/CustomizedAccordions";
-import {useDispatch, useSelector} from "react-redux";
-import {fetchData} from "./Containers/Dossier/dossierSlice";
+import "./App.css";
+import { useForm } from "react-hook-form";
+import Button from "@mui/material/Button";
+import CustomizedAccordions from "./Component/Accordion/CustomizedAccordions";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchData } from "./Containers/SkillsFile/dossierSlice";
 function App() {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors }
-    } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-        const dispatch = useDispatch();
-        const { data, status } = useSelector((state) => state.dossier);
+  const dispatch = useDispatch();
+  const { data, status } = useSelector((state) => state.dossier);
 
-    const onSubmit = (data) => {
-        console.log("data",data)
+  const onSubmit = (data) => {
+    dispatch(fetchData());
+  };
 
-            dispatch(fetchData());
-
-    };
-
-    return (
+  return (
     <div className="App">
-        <form onSubmit={handleSubmit(onSubmit)}>
-<CustomizedAccordions register={register}/>
-<br/>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <CustomizedAccordions register={register} />
+        <br />
 
-            <Button type="submit" variant="outlined">Télécharger  CV </Button>
-        </form>
+        <Button type="submit" variant="outlined">
+          Télécharger CV{" "}
+        </Button>
+      </form>
     </div>
   );
 }

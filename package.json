@@ -17,6 +17,7 @@
     "docx": "^6.0.0",
     "file-saver": "^2.0.2",
     "fs": "^0.0.1-security",
+    "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.46.1",

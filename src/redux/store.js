@@ -1,10 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit';
-import dossierReducer from '../Containers/Dossier/dossierSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import dossierReducer from "../Containers/SkillsFile/dossierSlice";
 
 export const store = configureStore({
-    reducer: {
-        dossier: dossierReducer,
-    },
+  reducer: {
+    dossier: dossierReducer,
+  },
 });
 
 export default store;
