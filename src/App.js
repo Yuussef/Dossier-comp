@@ -1,9 +1,9 @@
 import "./App.css";
 import { useForm } from "react-hook-form";
 import Button from "@mui/material/Button";
-import CustomizedAccordions from "./Component/Accordion/CustomizedAccordions";
+import CustomizedAccordions from "./components/Accordion/CustomizedAccordions";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "./Containers/SkillsFile/dossierSlice";
+import { fetchData } from "./features/SkillsFile/dossierSlice";
 function App() {
   const {
     register,

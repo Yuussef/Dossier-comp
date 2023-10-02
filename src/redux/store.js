@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import dossierReducer from "../Containers/SkillsFile/dossierSlice";
+import dossierReducer from "../features/SkillsFile/dossierSlice";
 
 export const store = configureStore({
   reducer: {
